@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍길동의 자기소개서 | Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --secondary: #c084fc;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-image:
+                radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 90%, rgba(192, 132, 252, 0.1) 0%, transparent 30%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .profile-img-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+        }
+
+        section {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        section:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            color: var(--primary-light);
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--glass-border);
+            margin-left: 1rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-item h3 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-light);
+            padding: 0.5rem 1rem;
+            border-radius: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .project-item {
+            margin-bottom: 2rem;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .project-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--primary-light);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/" class="nav-back">← Back to Main</a>
+
+        <header>
+            <div class="profile-img-container">
+                <img src="/images/profile.png" alt="홍길동 프로필">
+            </div>
+            <h1>홍길동 (Hong Gil-Dong)</h1>
+            <div class="subtitle">Full Stack Developer | Graduation Candidate</div>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>안녕하세요! 영진전문대학교 컴퓨터정보계열 졸업예정자 홍길동입니다. <br>
+                "사용자에게 가치를 전달하는 깔끔한 코드"를 지향하며, 새로운 기술을 학습하고 프로젝트에 적용하는 과정에서 기쁨을 느낍니다.
+                캡스톤 디자인 과정을 통해 팀 협업과 실무 프로세스를 경험하고 있습니다.</p>
+            <br>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Email</h3>
+                    <p>gildong@example.com</p>
+                </div>
+                <div class="info-item">
+                    <h3>Phone</h3>
+                    <p>010-1234-5678</p>
+                </div>
+                <div class="info-item">
+                    <h3>Education</h3>
+                    <p>영진전문대학교 컴퓨터정보계열</p>
+                </div>
+                <div class="info-item">
+                    <h3>Github</h3>
+                    <p>github.com/hgd-yju</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Tech Stack</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Spring Boot</span>
+                <span class="skill-tag">JPA / Hibernate</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">JavaScript (ES6+)</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Git / GitHub</span>
+                <span class="skill-tag">Docker</span>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">YJU Capstone Management System</div>
+                    <div class="project-date">2023.09 - 2024.12</div>
+                </div>
+                <p class="project-desc">영진전문대학교 캡스톤 프로젝트 관리 시스템 개발. 팀프로젝트의 진척도 관리 및 결과물 제출 시스템을 구축했습니다.</p>
+                <div class="skills-container">
+                    <span class="skill-tag" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">Spring Boot</span>
+                    <span class="skill-tag" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">Thymeleaf</span>
+                    <span class="skill-tag" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">MySQL</span>
+                </div>
+            </div>
+
+            <hr style="border: 0; height: 1px; background: var(--glass-border); margin: 2rem 0;">
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Custom E-Commerce Platform</div>
+                    <div class="project-date">2023.03 - 2023.06</div>
+                </div>
+                <p class="project-desc">React와 Spring Boot API를 연동한 쇼핑몰 사이트. 장바구니, 주문 관리, 결제 API 연동 기능을 구현했습니다.</p>
+                <div class="skills-container">
+                    <span class="skill-tag" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">React</span>
+                    <span class="skill-tag" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">REST API</span>
+                    <span class="skill-tag" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">Redux</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
