@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티 | 영진전문대학교 평생교육원</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        th,
+        td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/" class="logo">YJU Lifelong Edu</a>
+        <div class="nav-links">
+            <a href="/about">센터소개</a>
+            <a href="/courses">교육과정</a>
+            <a href="/community">커뮤니티</a>
+            <a href="/resume">홍길동 이력서</a>
+        </div>
+    </nav>
+
+    <div class="section">
+        <div class="container">
+            <h1 style="color: var(--primary); font-size: 3rem; margin-bottom: 1rem;">커뮤니티</h1>
+            <p style="color: var(--text-muted); margin-bottom: 3rem;">새로운 소식과 다양한 정보를 확인하세요.</p>
+
+            <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                <button class="btn" style="background: var(--primary);">공지사항</button>
+                <button class="btn" style="background: #eee; color: var(--text-dark);">자주 묻는 질문</button>
+                <button class="btn" style="background: #eee; color: var(--text-dark);">교육문의</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">번호</th>
+                        <th style="width: 60%;">제목</th>
+                        <th style="width: 15%;">작성일</th>
+                        <th style="width: 15%;">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5</td>
+                        <td>[안내] 방문간호 조무사 10기 모집 공고</td>
+                        <td>2025-11-07</td>
+                        <td>1,245</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>[핵심] 2025학년도 1학기 학점은행제 수강신청 안내</td>
+                        <td>2025-10-20</td>
+                        <td>3,560</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>시니어 발레 지도자 과정 개강 알림</td>
+                        <td>2025-09-29</td>
+                        <td>890</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>재학생을 위한 ITQ 엑셀 자격증반 개설</td>
+                        <td>2025-08-28</td>
+                        <td>2,100</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>인터넷 쇼핑몰 창업 예비자 과정 모집</td>
+                        <td>2025-08-12</td>
+                        <td>567</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer style="background: var(--primary); color: white; padding: 3rem 10%; text-align: center;">
+        <p>&copy; 2026 영진전문대학교 평생교육원 Capstone Team 01. 모든 권리 보유.</p>
+    </footer>
+</body>
+
+</html>

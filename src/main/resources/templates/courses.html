@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교육과정 안내 | 영진전문대학교 평생교육원</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+
+<body>
+    <nav>
+        <a href="/" class="logo">YJU Lifelong Edu</a>
+        <div class="nav-links">
+            <a href="/about">센터소개</a>
+            <a href="/courses">교육과정</a>
+            <a href="/community">커뮤니티</a>
+            <a href="/resume">홍길동 이력서</a>
+        </div>
+    </nav>
+
+    <div class="section">
+        <div class="container">
+            <h1 style="color: var(--primary); font-size: 3rem; margin-bottom: 3rem;">교육과정 안내</h1>
+
+            <div style="margin-bottom: 4rem;">
+                <h2 style="border-left: 5px solid var(--accent); padding-left: 1rem; margin-bottom: 2rem;">모집 중인 주요 과정
+                </h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <span
+                            style="background: var(--accent); color: white; padding: 0.2rem 0.8rem; border-radius: 5px; font-size: 0.8rem;">학점은행제</span>
+                        <h3 style="margin: 0.5rem 0;">사회복지학/경영학</h3>
+                        <p>학위 취득과 자격증을 동시에 준비하는 맞춤형 과정</p>
+                    </div>
+                    <div class="card">
+                        <span
+                            style="background: var(--primary); color: white; padding: 0.2rem 0.8rem; border-radius: 5px; font-size: 0.8rem;">자격증</span>
+                        <h3 style="margin: 0.5rem 0;">방문간호 간호조무사</h3>
+                        <p>전문 실무 역량 강화를 위한 전문 인력 양성 교육</p>
+                    </div>
+                    <div class="card">
+                        <span
+                            style="background: #28a745; color: white; padding: 0.2rem 0.8rem; border-radius: 5px; font-size: 0.8rem;">일반과정</span>
+                        <h3 style="margin: 0.5rem 0;">시니어 발레 지도자</h3>
+                        <p>건강하고 활기찬 노후를 위한 전문 지도자 양성</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 style="border-left: 5px solid var(--accent); padding-left: 1rem; margin-bottom: 2rem;">전체 교육 카테고리
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                    <div
+                        style="background: var(--white); padding: 1.5rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <span>ITQ 엑셀 자격증반 (재학생/일반)</span>
+                        <a href="#" style="color: var(--primary); font-weight: 700;">접수하기 ></a>
+                    </div>
+                    <div
+                        style="background: var(--white); padding: 1.5rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <span>인터넷 쇼핑몰 창업 예비자 과정</span>
+                        <a href="#" style="color: var(--primary); font-weight: 700;">접수하기 ></a>
+                    </div>
+                    <div
+                        style="background: var(--white); padding: 1.5rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <span>부동산 경매 및 자산관리</span>
+                        <a href="#" style="color: var(--primary); font-weight: 700;">접수하기 ></a>
+                    </div>
+                    <div
+                        style="background: var(--white); padding: 1.5rem; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <span>커피 바리스타 전문가 양성</span>
+                        <a href="#" style="color: var(--primary); font-weight: 700;">접수하기 ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background: var(--primary); color: white; padding: 3rem 10%; text-align: center;">
+        <p>&copy; 2026 영진전문대학교 평생교육원 Capstone Team 01. 모든 권리 보유.</p>
+    </footer>
+</body>
+
+</html>
